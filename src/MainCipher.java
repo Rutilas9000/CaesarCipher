@@ -1,5 +1,5 @@
 /**
- * @Class: CaesarCipher
+ * @Class: MainCipher
  * @Author: Savion Plater
  * @Course: ITEC 2140 - 05, Spring 2023
  * @Written: April 24, 2023
@@ -8,32 +8,22 @@
  */
 
 import java.util.Scanner;
-
-public class Main {
+public class MainCipher {
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        //Asks the user for input
+        Scanner in = new Scanner(System.in);
         System.out.print("Enter a message to be encrypted or decrypted: ");
-        String str = sc.nextLine();
-
+        String str = in.nextLine();
         System.out.print("Enter 'E' to encrypt or 'D' to decrypt: ");
-        String crypt = sc.nextLine();
-
+        String crypt = in.nextLine();
         System.out.print("Enter a integer key value for encryption or decryption: ");
-        int num = sc.nextInt();
-
-        //creates an instance of the CaesarCipher class
-        CaesarCipher cc = new CaesarCipher(num);
-
-        //switch-case to check if the user wants the message to be encrypted or decrypted
+        int a = in.nextInt();
+        CaesarCipher caesarCipher = new CaesarCipher(a);
         switch(crypt) {
             case "E":
-                System.out.println("Encrypted message: " + cc.encrypt(str));
+                System.out.println("Encrypted message: " + caesarCipher.encrypt(str));
                 break;
             case "D":
-                System.out.println("Decrypted message: " + cc.decrypt(str));
+                System.out.println("Decrypted message: " + caesarCipher.decrypt(str));
                 break;
         }
 
